@@ -75,6 +75,12 @@ pip install plantumlcli
 plantumlcli -c
 ```
 
+对于PlantUML图的生成，现已集成进`Makefile`中，当使用`make`命令进行文档编译之前会自动生成或更新UML图片。而当使用外部IDE进行编译，且UML代码存在新增或变更时，应在编译之前在命令行中运行如下命令
+
+```shell
+make diagrams
+```
+
 考虑到国内访问PlantUML源站速度较慢，可以考虑本地搭建在线或离线环境，更多细节可以参考：
 
 * [HansBug/plantumlcli](https://github.com/HansBug/plantumlcli)

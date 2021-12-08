@@ -41,7 +41,7 @@
 
 
 
-此外，对于非Windows环境，会需要额外安装两个字体：
+此外，对于非Windows环境，会需要额外安装一些字体：
 
 * `Times New Roman`，该字体可以在Windows系统字体库中获取，可以从[此链接下载](https://dl.freefontsfamily.com/download/Times-New-Roman-Font/)，也可以在Ubuntu/Debian下快速安装（**推荐使用此方法以实现自动化**）
 
@@ -50,13 +50,36 @@ echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select tr
 sudo apt-get install -y ttf-mscorefonts-installer  # 安装微软核心字体库
 ```
 
-* `STXingKai`，该字体暂无可靠的自动安装手段，可以从Windows系统字体库中获取，或从[此链接下载](https://github.com/dolbydu/font/raw/master/unicode/STXingkai.TTF)。
-
-* `STKaiTi`，该字体暂无可靠的自动安装手段，可以从Windows系统字体库中获取，或从[此链接下载](https://github.com/dolbydu/font/raw/master/unicode/STKaiti.TTF)。
+* 四种无法快速安装的字体
+    * `STXingkai`，华文行楷
+    * `STKaiti`，华文楷体
+    * `SimHei`，黑体
+    * `SimSun`，宋体
+    * 此类字体暂无可靠的自动安装手段，可以从Windows系统字体库中获取，或从[此链接下载](https://github.com/dolbydu/font/tree/master/unicode)。
 
 关于Linux环境下安装字体，可以参考此篇：[linux安装字体](https://www.cnblogs.com/wangjiming/p/12553535.html)
 
 如需更多字体文件，可以去[此仓库查找并下载](https://github.com/dolbydu/font)。
+
+
+
+为了支持PlantUML图的自动生成，需要安装`plantumlcli`命令行工具（需要Python不低于3.5版本
+
+```shell
+pip install plantumlcli
+```
+
+安装完毕后可以通过命令进行测试，本地或远程有任一正常即可运行
+
+```python
+plantumlcli -c
+```
+
+考虑到国内访问PlantUML源站速度较慢，可以考虑本地搭建在线或离线环境，更多细节可以参考：
+
+* [HansBug/plantumlcli](https://github.com/HansBug/plantumlcli)
+* [PlantUML - Getting Started](https://plantuml.com/en/starting)
+* [dockerhub - plantuml/plantuml-server](https://hub.docker.com/r/plantuml/plantuml-server)
 
 
 ## 使用方法

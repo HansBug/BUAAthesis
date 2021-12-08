@@ -36,3 +36,6 @@
 .DS_Store
 /local_fonts
 /times_new_roman
+/data/diagrams/*.eps
+/data/diagrams/*.png
+/data/diagrams/*.svg

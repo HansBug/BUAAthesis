@@ -14,10 +14,18 @@ jobs:
       matrix:
         os:
           - 'ubuntu-18.04'
+        python-version:
+          - '3.7'
         latex-entry:
           - 'sample-bachelor'
           - 'sample-kaitireport'
           - 'sample-master'
+
+    services:
+      plantuml:
+        image: plantuml/plantuml-server
+        ports:
+          - 18080:8080
 
     steps:
       - name: Checkout code
@@ -29,6 +37,21 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y tree cloc make
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install pip support
+        run: |
+          pip install -U pip
+          pip install plantumlcli
+          plantumlcli -v
+      - name: Generate plantuml diagrams
+        env:
+          PLANTUML_HOST: http://localhost:18080
+        run: |
+          plantumlcli -c
+          make diagrams
       - name: Load the font requirements
         run: |
           mkdir -p ./local_fonts

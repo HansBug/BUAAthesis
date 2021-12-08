@@ -63,7 +63,7 @@ sudo apt-get install -y ttf-mscorefonts-installer  # 安装微软核心字体库
 
 
 
-为了支持PlantUML图的自动生成，需要安装`plantumlcli`命令行工具（需要Python不低于3.5版本
+为了支持PlantUML图的自动生成，需要安装`plantumlcli`命令行工具（需要Python不低于3.5版本，另外实际上Latex本身有对plantuml的支持，但是实际产生的图片效果实在不咋样，需要对Latex环境有要求且不具备可定制性，因此采用更加简单暴力的方法解决这一问题）
 
 ```shell
 pip install plantumlcli
@@ -90,7 +90,7 @@ make diagrams
 
 ## 使用方法
 
-1. 可以使用命令行或 PowerShell 等，配合项目中的 `mamske.bat` 批处理文件进行编译，详细使用方法请见 `mamske.bat` 文件；
+1. 可以使用命令行或 PowerShell 等，配合项目中的 `msmake.bat` 批处理文件进行编译，详细使用方法请见 `msmake.bat` 文件；
 
 2. 使用 Makefile，需要所使用的命令行环境支持 Make，cd 到 BUAAthesis 相应目录，目前支持以下功能
 

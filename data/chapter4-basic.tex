@@ -367,7 +367,7 @@ void main()
 如果对图形的编排的兴趣，可以参考推荐书目。
 % TODO(huxuan): Add reference to 《\LaTeX{}插图指南》
 
-\subsection{PLANTUML图}
+\subsection{PlantUML图}
 
 可以通过在./data/diagrams路径下添加.puml格式\footnote{关于PlantUML，可以参考官网资料：\url{https://plantuml.com/en/}，是一个很方便快捷的UML图绘制工具。}的UML代码文件来向文档中添加UML图，目前已经配备了相关的Makefile，可以在编译文档前自动生成png、eps\footnote{eps格式为矢量图格式，在xelatex中被原生支持，可以直接使用。}、svg格式\footnote{svg格式为矢量图格式，在xelatex中需要额外的依赖进行支持。}的图片。例如下面的例子，./data/diagrams/helloworld.puml的代码如下所示
 
@@ -377,7 +377,7 @@ void main()
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=150bp]{./data/diagrams/helloworld.png}
+	\includegraphics[width=150bp]{./data/diagrams/helloworld.puml.png}
 	\caption{png格式UML图片}
 	\label{fig-uml-helloworld-png}
 \end{figure}
@@ -386,7 +386,7 @@ eps格式图片./data/diagrams/helloworld.puml.eps如图\ref{fig-uml-helloworld-
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=150bp]{./data/diagrams/helloworld.eps}
+	\includegraphics[width=150bp]{./data/diagrams/helloworld.puml.eps}
 	\caption{eps格式UML图片}
 	\label{fig-uml-helloworld-eps}
 \end{figure}

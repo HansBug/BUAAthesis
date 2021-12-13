@@ -36,7 +36,7 @@ jobs:
         if: ${{ runner.os == 'Linux' }}
         run: |
           sudo apt-get update
-          sudo apt-get install -y tree cloc make
+          sudo apt-get install -y tree cloc make graphviz
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:

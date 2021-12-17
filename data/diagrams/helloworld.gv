@@ -1,20 +1,27 @@
 digraph G {
+  # graphviz默认字体为英文字体，不支持中文
+  # 因此若使用中文，则需要手动设置现有支持中文的字体
+  # SimSun -- 宋体
+  fontname="SimSun";
+  edge [fontname="SimSun"];
+  node [fontname="SimSun"];
 
   subgraph cluster_0 {
     style=filled;
     color=lightgrey;
     node [style=filled,color=white];
     a0 -> a1 -> a2 -> a3;
-    label = "process #1";
+    a0 [label="这是中文点 a0"]
+    label="这是中文标签 #1";
   }
 
   subgraph cluster_1 {
     node [style=filled];
     b0 -> b1 -> b2 -> b3;
-    label = "process #2";
+    label="Правило #2";
     color=blue
   }
-  start -> a0;
+  start -> a0 [label="这是中文边"];
   start -> b0;
   a1 -> b3;
   b2 -> a3;

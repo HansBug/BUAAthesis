@@ -42,16 +42,13 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install pip support
+        env:
+          PLANTUML_HOST: http://localhost:18080
         run: |
           pip install -U pip
           pip install plantumlcli
           plantumlcli -v
-      - name: Generate plantuml diagrams
-        env:
-          PLANTUML_HOST: http://localhost:18080
-        run: |
           plantumlcli -c
-          make diagrams
       - name: Load the font requirements
         run: |
           mkdir -p ./local_fonts
@@ -60,6 +57,23 @@ jobs:
           curl -L 'https://github.com/dolbydu/font/raw/master/unicode/SimHei.ttf' -o ./local_fonts/SimHei.ttf  # download heiti
           curl -L 'https://github.com/dolbydu/font/raw/master/unicode/STXingkai.TTF' -o ./local_fonts/STXingkai.ttf  # download STXingKai
           curl -L 'https://github.com/dolbydu/font/raw/master/unicode/STKaiti.TTF' -o ./local_fonts/STKaiti.ttf  # download STKaiTi
+
+          echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections  # 用于非交互模式下自动安装，其他情况下非必须
+          sudo apt-get install -y ttf-mscorefonts-installer  # 安装微软核心字体库
+          sudo fc-cache -f -v
+
+          sudo apt-get install -y fontconfig
+          sudo mkdir -p /usr/share/fonts/msfonts
+          sudo cp ./local_fonts/* /usr/share/fonts/msfonts
+          sudo chmod 644 /usr/share/fonts/msfonts/*
+          sudo mkfontscale
+          sudo mkfontdir
+          sudo fc-cache -f -v
+      - name: Generate plantuml diagrams
+        env:
+          PLANTUML_HOST: http://localhost:18080
+        run: |
+          make diagrams
       - name: Test the basic environment
         run: |
           tree .

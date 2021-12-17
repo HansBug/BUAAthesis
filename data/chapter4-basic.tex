@@ -367,47 +367,6 @@ void main()
 如果对图形的编排的兴趣，可以参考推荐书目。
 % TODO(huxuan): Add reference to 《\LaTeX{}插图指南》
 
-\subsection{PlantUML图}
-
-可以通过在./data/diagrams路径下添加.puml格式\footnote{关于PlantUML，可以参考官网资料：\url{https://plantuml.com/en/}，是一个很方便快捷的UML图绘制工具。}的UML代码文件来向文档中添加UML图，目前已经配备了相关的Makefile，可以在编译文档前自动生成png、eps\footnote{eps格式为矢量图格式，在xelatex中被原生支持，可以直接使用。}、svg格式\footnote{svg格式为矢量图格式，在xelatex中需要额外的依赖进行支持。}的图片。例如下面的例子，./data/diagrams/helloworld.puml的代码如下所示，
-\lstinputlisting[label=code-uml-helloworld,caption=示例UML源代码]{./data/diagrams/helloworld.puml}
-生成的图片./data/diagrams/helloworld.puml.png如图\ref{fig-uml-helloworld-png}所示，eps格式图片./data/diagrams/helloworld.puml.eps如图\ref{fig-uml-helloworld-eps}所示。
-\begin{figure}[h!]
-	\begin{minipage}{0.48\textwidth}
-		\centering
-		\includegraphics[width=0.75\textwidth]{./data/diagrams/helloworld.png}
-		\caption{png格式UML图片}
-		\label{fig-uml-helloworld-png}
-	\end{minipage}
-	\begin{minipage}{0.48\textwidth}
-		\centering
-		\includegraphics[width=0.75\textwidth]{./data/diagrams/helloworld.eps}
-		\caption{eps格式UML图片}
-		\label{fig-uml-helloworld-eps}
-	\end{minipage}
-\end{figure}
-
-\subsection{Graphviz图}
-
-可以通过在./data/diagrams路径下添加.gv格式\footnote{关于Graphviz，可以参考官网资料：\url{https://graphviz.org/}，是一种高度通用的图形数据结构绘制工具。}的代码来向文档中添加Graphviz图，
-目前已经配备了Makefile，可以自动生成png、pdf、svg格式的图片\footnote{eps格式亲测无法兼容中文，PostScript不支持非拉丁字符，因此使用pdf作为矢量图格式。}。
-例如下面的例子，./data/diagrams/helloworld.gv的代码如下所示，
-\lstinputlisting[label=code-gv-helloworld,caption=示例Graphviz源代码]{./data/diagrams/helloworld.gv}
-生成的图片./data/diagrams/helloworld.gv.png如图\ref{fig-gv-helloworld-png}所示，eps格式图片./data/diagrams/helloworld.gv.pdf如图\ref{fig-gv-helloworld-pdf}所示。
-\begin{figure}[h!]
-	\begin{minipage}{0.48\textwidth}
-		\centering
-		\includegraphics[width=0.95\textwidth]{./data/diagrams/helloworld.gv.png}
-		\caption{png格式Graphviz图片}
-		\label{fig-gv-helloworld-png}
-	\end{minipage}
-	\begin{minipage}{0.48\textwidth}
-		\centering
-		\includegraphics[width=0.95\textwidth]{./data/diagrams/helloworld.gv.pdf}
-		\caption{pdf格式Graphviz图片}
-		\label{fig-gv-helloworld-pdf}
-	\end{minipage}
-\end{figure}
 
 \subsection{图形表格等混排}
 \label{subsec-morefigtab}
@@ -620,3 +579,47 @@ void main()
     \label{thm-problem-example}
     回答还是不回答，是个问题。
 \end{problem}
+
+
+\subsection{PlantUML图}
+
+可以通过在./data/diagrams路径下添加.puml格式\footnote{关于PlantUML，可以参考官网资料：\url{https://plantuml.com/en/}，是一个很方便快捷的UML图绘制工具。}的UML代码文件来向文档中添加UML图，目前已经配备了相关的Makefile，可以在编译文档前自动生成png、eps\footnote{eps格式为矢量图格式，在xelatex中被原生支持，可以直接使用。}、svg格式\footnote{svg格式为矢量图格式，在xelatex中需要额外的依赖进行支持。}的图片。例如下面的例子，./data/diagrams/helloworld.puml的代码如下所示，
+\lstinputlisting[label=code-uml-helloworld,caption=示例UML源代码]{./data/diagrams/helloworld.puml}
+生成的png格式图片\footnote{位于./data/diagrams/helloworld.puml.png。}如图\ref{fig-uml-helloworld-png}所示，eps格式图片\footnote{位于./data/diagrams/helloworld.puml.eps。}如图\ref{fig-uml-helloworld-eps}所示。
+\begin{figure}[h!]
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=0.75\textwidth]{./data/diagrams/helloworld.puml.png}
+		\caption{png格式UML图片}
+		\label{fig-uml-helloworld-png}
+	\end{minipage}
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=0.75\textwidth]{./data/diagrams/helloworld.puml.eps}
+		\caption{eps格式UML图片}
+		\label{fig-uml-helloworld-eps}
+	\end{minipage}
+\end{figure}
+
+
+\subsection{Graphviz图}
+
+可以通过在./data/diagrams路径下添加.gv格式\footnote{关于Graphviz，可以参考官网资料：\url{https://graphviz.org/}，是一种高度通用的图形数据结构绘制工具。}的代码来向文档中添加Graphviz图，
+目前已经配备了Makefile，可以自动生成png、pdf、svg格式的图片\footnote{eps格式亲测无法兼容中文，PostScript不支持非拉丁字符，因此使用pdf作为矢量图格式。}。
+例如下面的例子，./data/diagrams/helloworld.gv的代码如下所示，
+\lstinputlisting[label=code-gv-helloworld,caption=示例Graphviz源代码]{./data/diagrams/helloworld.gv}
+生成的png格式图片\footnote{位于./data/diagrams/helloworld.gv.png。}如图\ref{fig-gv-helloworld-png}所示，pdf格式图片\footnote{位于./data/diagrams/helloworld.gv.pdf。}如图\ref{fig-gv-helloworld-pdf}所示。
+\begin{figure}[h!]
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{./data/diagrams/helloworld.gv.png}
+		\caption{png格式Graphviz图片}
+		\label{fig-gv-helloworld-png}
+	\end{minipage}
+	\begin{minipage}{0.48\textwidth}
+		\centering
+		\includegraphics[width=0.95\textwidth]{./data/diagrams/helloworld.gv.pdf}
+		\caption{pdf格式Graphviz图片}
+		\label{fig-gv-helloworld-pdf}
+	\end{minipage}
+\end{figure}
